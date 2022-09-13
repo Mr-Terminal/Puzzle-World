@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Puzzle Game</title>
+    <link
+        href="data:image/x-icon;base64,AAABAAEAEBAAAAAAAABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAAAAAAAmu+lAAWBCQBGpkwAwdrGAFS+WwAAYgYAI5UjAEOuRwDI3MkARa5HAEupVQB62YIANqI4AOLt4wDp8OsAn/GpACJ7KwCL4pIAh7OKAFnAXwAefSYAZ8ZvABSLGAAOdRQAu9O7APf49gACXgsA5O/nADajNwB72YQAIn0nAO/08gAhliMAWr5eAARhDAB0y3sAd9WAAIfjkgABXwoAme6kAAJfCgAujjoAl+qfAIa0igCI25AAM6Q2AAllEgAJaQ8ADmwXADWjOQADfgYAIpQiAA19EQAHYxAATrBWAA59EQBCsEYAAGoFAAiACQADZQsAIH8kAH6sgQAAXQkAEXAVAGnIbQAVjRYAXbhpAGjHcAABYAkAIpQjABWMGQBWv14A+Pn3ACaELwAfjyEAAm0GAOz28ACa7KQAJYwqAMXeygBFrUgAW79fAHrYgwDh7eEABGINAH3YgwA3mT8A4ezkAEOrRgBbvV0AA3MHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABJAAAAAAAAAAAAAAAAAAAOECsAAFURAAAAAAAAAAAAUChOAAAtAUUAAAAAAAAAAABNKiQeJhJDIAAAAAAAAAAAAAsMU1YlLwAAAAAAAAAAVDcWQRZEEwBKHwAAAAAACVdaFAMiSBU+UgU2AAAAAAAjChsAMQgIOVFZPQAAAAAAAE8PAEAuMg0dMAAAAAAAAAAAPEtGITQHGAAAAAAAAAAAABlHQkcXODUpGgAAAAAAAAAALAJbJxwzOwYAAAAAAAAAAAA/WAAAOkwEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP//AAD3/wAA4z8AAOMfAADwDwAA+B8AAOAnAADAAwAA4gMAAPIHAAD4DwAA+AMAAPwDAAD+YwAA//8AAP//AAA="
+        rel="icon" type="image/x-icon" />
+    <link href="css/style.css" rel="stylesheet" />
+    <!-- <link href="css/image-puzzle.css" rel="stylesheet" /> -->
+    <script src="js/image-puzzle.js"></script>
+</head>
+
+<body class="area">
+
+    <ul class="circles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+    <div id="collage">
+        <h2 class="heading">Solve The Puzzle!</h2>
+
+        <div id="playpanel">
+            <ul id="sortable" class="sortable"></ul>
+            <div id="actualImageBox">
+
+                <div id="timeBox">
+                    Time Taken: <span id="timerPanel"></span> secs
+                </div>
+                <img id="actualImage">
+                <div id="note">Re-arrange to create a picture like this.</div>
+                <p id="levelPanel">
+                    <input type="radio" name="level" id="easy" checked="checked" value="3"
+                        onchange="imagePuzzle.startGame(images, this.value);" /> <label for="easy">Easy</label>
+                    <input type="radio" name="level" id="medium" value="4"
+                        onchange="imagePuzzle.startGame(images, this.value);" /> <label for="medium">Medium</label>
+                    <input type="radio" name="level" id="hard" value="5"
+                        onchange="imagePuzzle.startGame(images, this.value);" /> <label for="hard">Hard</label>
+                </p>
+                <div id="btn">
+                    <button id="btnRule" type="button" class="btn" onclick="rules();">Rules</button>
+                    <button id="newPhoto" type="button" class="btn" onclick="restart();">Another Photo</button>
+                </div>
+            </div>
+        </div>
+        <div id="gameOver" style="display: none;">
+
+            <h2 class="conclusion">Game Over!</h2>
+            <p class="congo">
+                Congratulations! You have completed this picture..
+            </p>
+            <p class="time">
+                Time Taken: <span class="timeCount">0</span> seconds
+            </p>
+
+            <button type="button" class=" playagain" onclick="window.location.reload(true);">Play Again</button>
+        </div>
+    </div>
+    <script>
+        var images = [
+            { src: 'https://picsum.photos/400/400?random=' + Math.random() },
+        ];
+
+        window.onload = function () {
+            var gridSize = document.querySelector('#levelPanel input[type="radio"]:checked').getAttribute('value');
+            imagePuzzle.startGame(images, gridSize);
+        };
+        function restart() {
+            var images = [
+                { src: 'https://picsum.photos/400/400?random=' + Math.random() },
+            ];
+            var gridSize = document.querySelector('#levelPanel input[type="radio"]:checked').getAttribute('value');
+            imagePuzzle.startGame(images, gridSize);
+        }
+        function rules() {
+            alert('Re arrange the image parts in a way that it correctly forms the picture. \nDrag those pictures into right position\n');
+        }
+    </script>
+</body>
+
+</html>

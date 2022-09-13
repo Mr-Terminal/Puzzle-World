@@ -1,0 +1,314 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.area {
+  background: #4e54c8;
+  width: 100%;
+  height: 100vh;
+}
+
+.circles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+  padding-left: 0;
+}
+
+.circles li {
+  position: absolute;
+  display: block;
+  list-style: none;
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  animation: animate 25s linear infinite;
+  bottom: -150px;
+
+}
+
+.circles li:nth-child(1) {
+  left: 25%;
+  width: 80px;
+  height: 80px;
+  animation-delay: 0s;
+}
+
+
+.circles li:nth-child(2) {
+  left: 10%;
+  width: 150px;
+  height: 100px;
+  animation-delay: 2s;
+  animation-duration: 5s;
+}
+
+.circles li:nth-child(3) {
+  left: 70%;
+  width: 170px;
+  height: 140px;
+  animation-delay: 1s;
+}
+
+.circles li:nth-child(4) {
+  left: 40%;
+  width: 60px;
+  height: 60px;
+  animation-delay: 0s;
+  animation-duration: 15s;
+}
+
+.circles li:nth-child(5) {
+  left: 65%;
+  width: 30px;
+  height: 30px;
+  animation-delay: 0s;
+}
+
+.circles li:nth-child(6) {
+  left: 75%;
+  width: 110px;
+  height: 110px;
+  animation-delay: 13s;
+}
+
+.circles li:nth-child(7) {
+  left: 35%;
+  width: 150px;
+  height: 150px;
+  animation-delay: 7s;
+}
+
+.circles li:nth-child(8) {
+  left: 50%;
+  width: 25px;
+  height: 45px;
+  animation-delay: 15s;
+  animation-duration: 45s;
+}
+
+.circles li:nth-child(9) {
+  left: 20%;
+  width: 55px;
+  height: 35px;
+  animation-delay: 2s;
+  animation-duration: 25s;
+}
+
+.circles li:nth-child(10) {
+  left: 85%;
+  width: 150px;
+  height: 150px;
+  animation-delay: 0s;
+  animation-duration: 21s;
+}
+
+
+
+@keyframes animate {
+
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+    border-radius: 0;
+  }
+
+  100% {
+    transform: translateY(-1000px) rotate(720deg);
+    opacity: 0;
+    border-radius: 50%;
+  }
+
+}
+
+#collage {
+  z-index: 1;
+}
+
+#collage .heading {
+  font-family: 'Lato', sans-serif;
+  font-weight: 800;
+  font-size: 2.5rem;
+  text-align: center;
+  color: aliceblue;
+  margin: 2rem auto;
+}
+
+#playpanel {
+  background-color: rgba(137, 132, 132, 0.416);
+  box-shadow: 0 0 150px 0 rgba(204, 16, 16, 0.363);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 32px;
+  padding: 10px 0px;
+  margin: 10px auto;
+  max-width: 900px;
+  /* width: 97%; */
+  height: 30rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+#collage #sortable {
+  /* border: 2px solid #a46; */
+  list-style-type: none;
+  display: inline-block;
+  margin: 5px;
+  padding: 0;
+  width: 400px;
+  height: 400px;
+}
+
+#collage #sortable li {
+  background-size: 400% 400%;
+  border: none;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  float: left;
+  width: 100px;
+  height: 100px;
+}
+
+#collage #actualImageBox {
+  /* display: inline-block; */
+  font-size: 0.8em;
+  margin: 10px 10px;
+  /* vertical-align: top; */
+  width: 288px;
+  justify-content: center;
+}
+
+#actualImage {
+  height: 16rem;
+  width: 16rem;
+  border-radius: 8px;
+  margin: 15px;
+}
+
+#timeBox {
+  margin-left: 15px;
+  font-family: 'lato', sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  color: aliceblue;
+
+}
+
+#note {
+  margin-left: 15px;
+  font-family: 'lato', sans-serif;
+  font-weight: 400;
+  font-size: .8rem;
+  color: aliceblue;
+  font-size: 1rem;
+}
+
+#levelPanel {
+  margin-left: 15px;
+  font-family: 'lato', sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  color: aliceblue;
+}
+
+#levelPanel input {
+  cursor: pointer;
+}
+
+#btn {
+  margin-left: 15px;
+  font-family: 'lato', sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  color: aliceblue;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+}
+
+#btnRule {
+  padding: 8px 10px;
+  border-radius: 22px;
+  border: transparent;
+  font-family: 'lato', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+#btnRule:hover {
+  color: aliceblue;
+  background: black;
+  transition: .1s ease-in-out;
+}
+
+#newPhoto {
+  padding: 8px 10px;
+  border-radius: 22px;
+  border: transparent;
+  font-family: 'lato', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+#newPhoto:hover {
+  color: aliceblue;
+  background: black;
+  transition: .1s ease-in-out;
+}
+
+#gameOver {
+  text-align: center;
+}
+
+.conclusion {
+  font-family: 'itim', cursive;
+  font-size: 2rem;
+  font-weight: 600;
+  color: aliceblue;
+  text-transform: uppercase;
+}
+
+.congo {
+  font-family: 'lato', sans-serif;
+  font-weight: 600;
+  color: aliceblue;
+}
+
+.time {
+  font-family: 'lato', sans-serif;
+  font-weight: 600;
+  color: aliceblue;
+}
+.playagain {
+  padding: 8px 10px;
+  border-radius: 22px;
+  border: transparent;
+  font-family: 'lato', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.playagain:hover {
+  color: aliceblue;
+  background: black;
+  transition: .1s ease-in-out;
+}
